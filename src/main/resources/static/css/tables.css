@@ -1,0 +1,24 @@
+.table {
+    margin: auto;
+    font-size: 14px;
+    background: white ;
+    max-width: 1000px;
+    width: 1000px;
+    text-align: center;
+    border-collapse: collapse;
+}
+th {
+    background: #DFDFDF; /* Darken header a bit */
+    font-weight: bold;
+    color: #039;
+    padding: 10px 15px;
+}
+td {
+    background: #FAFAFA;
+    text-align: center;
+    border-top: 1px solid #e8edff;
+    padding: 10px 15px;
+}
+tr:nth-child(2n) {
+    background: #e8edff;
+}
