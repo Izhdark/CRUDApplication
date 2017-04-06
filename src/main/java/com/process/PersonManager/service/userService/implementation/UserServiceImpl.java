@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void Save(User user,String token) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setCreation_date(new Date());
         user.setUserRole(UserRole.User.name());
         user.setToken(token);
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createNewUserAccount(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setCreation_date(new Date());
         user.setUserRole(UserRole.User.name());
         return user;

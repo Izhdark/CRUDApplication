@@ -36,6 +36,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
  */
 @Configuration
 @EnableWebSecurity
+@SuppressWarnings("SpringJavaAutowiringInspection")
 public class webConfig extends WebSecurityConfigurerAdapter {
 
     private static final Logger LOGGER = Logger.getLogger(WebSecurityConfigurerAdapter.class);
@@ -125,6 +126,6 @@ public class webConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(PasswordEncoder());
+        auth.userDetailsService(userDetailsService);
     }
 }
