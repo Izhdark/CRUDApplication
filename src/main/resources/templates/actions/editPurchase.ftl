@@ -17,7 +17,7 @@
 </div>
 <div>
     <form action="/main/tables/purchase/updatePurchase" method="post" name="updatePurchase" id="form" ">
-
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="text" value="${purchase.idPurchase}" name="idPurchase" hidden>
     <label style="padding-right: 115px" for="Date"> Дата покупки</label>
     <input type="date" value="${purchase.date}" id="Date" name="date"  required="required" size="50"> <br>

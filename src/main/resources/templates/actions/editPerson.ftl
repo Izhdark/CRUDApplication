@@ -17,7 +17,7 @@
     </div>
     <div>
         <form action="/main/tables/updatePerson" method="post" name="updatePersons" ">
-
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="text" value="${personData.id}" name="id" hidden>
             <label style="padding-right: 115px" for="name"> Имя</label>
         <input type="text" value="${personData.firstName}" id="name" name="firstName"  required="required" size="50"> <br>

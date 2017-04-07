@@ -48,11 +48,13 @@
                         <td>${bank.term_of_issue_of_bank_cards}</td>
                         <td>
                             <form action="/main/tables/bank/edit">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <input type="image" src="/icons/edit.png"  name="edit" value="${bank.id}" alt="Добавить" >
                             </form>
                         </td>
                         <td>
                             <form action="/main/tables/bank/delete" method="post">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 <input type="image" src="/icons/delete.png" name="getIdBank" value="${bank.id}" alt="Удалить">
                             </form>
                         </td>

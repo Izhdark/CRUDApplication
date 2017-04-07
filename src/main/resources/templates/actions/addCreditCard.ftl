@@ -16,7 +16,8 @@
     </h3>
 </div>
     <div>
-        <form action="/main/tables/creditCard/addData" method="post" name="creditCard" id="form" ">
+        <form action="/main/tables/creditCard/addData" method="post" name="creditCard" id="form">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <label style="padding-right: 80px" for="Type"> Тип карты</label>
         <input type="text" id="Type" name="type" required="required" size="50"> <br>
         <label style="padding-right: 60px" for="numberCard">Номер карты</label>
@@ -30,14 +31,13 @@
                 <option  value="${person.id}"> ${person.firstName} ${person.lastName}</option>
             </#list>
             </select><br>
-        <label style="padding-right: 40px" for="LinkBank">Привязать карту с человеком</label>
+        <label style="padding-right: 40px" for="LinkBank">Привязать карту с банком</label>
         <select name="selectedBank" id="LinkBank" form="form">
             <option selected disabled>Выберете банк из списка</option>
         <#list banks as bank>
             <option  value="${bank.id}"> ${bank.name}</option>
         </#list>
         </select><br>
-
         <input type="submit" value="Занести в базу">
         </form>
         <form action="/main/tables/creditCard/cancel">

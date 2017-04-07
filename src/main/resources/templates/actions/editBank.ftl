@@ -17,6 +17,7 @@
 </div>
     <div>
         <form action="/main/tables/bank/updateBank" method="post" name="updateBank"  ">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="text" value="${bank.id}" name="id" hidden>
         <label style="padding-right: 50px" for="Name">Название банка</label>
         <input type="text" id="Name" name="name" value="${bank.name}" required="required" size="50"> <br>

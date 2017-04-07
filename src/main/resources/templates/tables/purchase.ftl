@@ -46,11 +46,13 @@
                     <td>${purchase.store_name}</td>
                     <td>
                         <form action="/main/tables/purchase/edit" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <input type="image" src="/icons/edit.png"  name="edit" value="${purchase.idPurchase}" alt="Добавить" >
                         </form>
                     </td>
                     <td>
                         <form action="/main/tables/purchase/delete" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <input type="image" src="/icons/delete.png" name="getIdPurchase" value="${purchase.idPurchase}" alt="Удалить">
                         </form>
                     </td>

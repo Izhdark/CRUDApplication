@@ -45,11 +45,13 @@
                             <td>${person.birthDate}</td>
                             <td>
                                 <form action="/main/tables/person/edit">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                     <input type="image" src="/icons/edit.png" value="${person.id}" name="getIdToUpdate" alt="Добавить" >
                                 </form>
                             </td>
                             <td>
                                 <form action="/main/tables/person/delete" method="post">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                     <input type="image" src="/icons/delete.png" value="${person.id}"  name="getIdToDelete" alt="Удалить">
                                 </form>
                             </td>

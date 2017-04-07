@@ -17,6 +17,7 @@
     </div>
     <div>
         <form action="/main/tables/dataPerson" method="post" name="personId"  ">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <label style="padding-right: 115px" for="name"> Имя</label>
                 <input type="text" id="name" name="firstName" required="required" size="50"> <br>
             <label style="padding-right: 82px" for="lastName">Фамилия</label>

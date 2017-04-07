@@ -17,6 +17,7 @@
 </div>
     <div>
         <form action="/main/tables/creditCard/editData" method="post" name="editCreditCard" id="form" ">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <input name="idCard" value="${creditCards.idCard}" hidden>
             <label style="padding-right: 80px" for="Type"> Тип карты</label>
             <input type="text" id="Type" value="${creditCards.type}" name="type" required="required" size="50"><br>

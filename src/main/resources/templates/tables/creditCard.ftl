@@ -50,11 +50,13 @@
                             <td>${creditCard.money}</td>
                             <td>
                                 <form action="/main/tables/creditCard/edit" method="post">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                     <input type="image" src="/icons/edit.png" name="idEdit" value="${creditCard.idCard}" alt="Добавить" >
                                 </form>
                             </td>
                             <td>
                                 <form action="/main/tables/creditCard/delete" method="post">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                     <input type="image" src="/icons/delete.png" name="idDelete" value="${creditCard.idCard}" alt="Удалить">
                                 </form>
                             </td>
