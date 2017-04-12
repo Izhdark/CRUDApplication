@@ -48,8 +48,9 @@ public class LoginController{
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLoginForm(@RequestParam(value = "error", required = false) String error,
                                 Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        logger.info(auth);
         model.addAttribute("error", error != null);
-        logger.info(model.toString());
         return "auth/login";
     }
 
