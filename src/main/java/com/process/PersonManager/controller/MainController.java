@@ -23,7 +23,6 @@ public class MainController {
         logger.info("/main");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name=auth.getAuthorities().toString();
-        logger.info(auth);
         model.addAttribute("ANONYMOUS",false);
         model.addAttribute("USER",false);
         if(name.equals("[ROLE_ANONYMOUS]")){
@@ -38,7 +37,6 @@ public class MainController {
     }
     @RequestMapping(value = "/main/tables")
     public String showTables(){
-        logger.info("/main/tables");
         return "tables";
     }
     @RequestMapping(value = "/mainMenu")

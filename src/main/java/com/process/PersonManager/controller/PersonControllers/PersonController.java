@@ -25,36 +25,29 @@ public class PersonController {
 
     @RequestMapping(value = "/main/tables/person")
     public String showPerson(Model model){
-        logger.info("/main/tables/person");
-        logger.info(personService.findAll());
         model.addAttribute("persons",personService.findAll());
         return "tables/person";
     }
 
     @RequestMapping(value = "/main/tables/person/add")
     public String addForm(){
-        logger.info("/main/tables/person/add");
         return "actions/add";
     }
 
     @RequestMapping(value = "/main/tables/dataPerson", method = RequestMethod.POST)
     public String addData(@ModelAttribute("personId") Person person ){
-        logger.info("/main/tables/dataPerson");
         personService.addPerson(person);
         return "redirect:/main/tables/person";
     }
 
     @RequestMapping(value = "/main/tables/person/delete",method = RequestMethod.POST)
     public String deleteData(@RequestParam("getIdToDelete") int id){
-        logger.info("/main/tables/person/delete");
-        logger.info(id);
         personService.deletePerson(id);
         return "redirect:/main/tables/person";
     }
 
     @RequestMapping(value = "/main/tables/person/edit")
     public String showUpdateDataForm(@RequestParam("getIdToUpdate") int id, Model model){
-        logger.info(personService.getPersonById(id));
         model.addAttribute("personData", personService.getPersonById(id));
         return "/actions/editPerson";
     }
@@ -66,7 +59,6 @@ public class PersonController {
 
     @RequestMapping(value = "/main/tables/updatePerson")
     public String updateData(@ModelAttribute("updatePersons") Person person){
-       logger.info(person);
        personService.updatePerson(person.getFirstName(),person.getLastName(),person.getBirthDate(),person.getId());
        return "redirect:/main/tables/person";
     }

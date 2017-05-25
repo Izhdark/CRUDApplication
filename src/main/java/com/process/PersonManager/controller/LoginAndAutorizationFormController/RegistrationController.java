@@ -46,9 +46,7 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
-        logger.info("/registration");
         model.addAttribute("message", false);
-        logger.info(model.toString());
         return "auth/registration";
     }
 
@@ -61,7 +59,6 @@ public class RegistrationController {
         }
         String appUrl = webRequest.getContextPath();
         User registered = userService.createNewUserAccount(user);
-        logger.info(registered);
         model.addAttribute("message", true);
         model.addAttribute("email", user.getEmail());
         eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registered, appUrl, webRequest.getLocale()));
@@ -71,22 +68,16 @@ public class RegistrationController {
     @RequestMapping(value = "/registrationConfirm", method = RequestMethod.GET)
     public String confirmRegistration
             (WebRequest request, Model model, @RequestParam("token") String token) {
-        logger.info(token);
         User verificationToken = userService.findByToken(token);
-        logger.info(token);
         if (verificationToken == null) {
             model.addAttribute("message", ErrorMessage.TOKEN_NOT_VALID);
             return "redirect:/badUser.html?lang=";
         }
-        Calendar cal = Calendar.getInstance();
-        VerificationToken vertoken = new VerificationToken();
-        logger.info(vertoken.getExpiration());
 /*        if(vertoken.getExpiration()-verificationToken.getCreation_date().getTime()<=0){
             model.addAttribute("message",ErrorMessage.TOKEN_NOT_VALID);
             userService.deleteUser(verificationToken);
             return "redirect:/badUser.html?lang=";
         }*/
-        logger.info(verificationToken);
         return "redirect:/login";
     }
 }

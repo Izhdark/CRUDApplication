@@ -40,23 +40,18 @@ public class PurchaseController {
     @RequestMapping(value = "/main/tables/purchase/add")
     public String addForm(Model model){
         model.addAttribute("creditCards",creditCardService.findAll());
-        logger.info(creditCardService.findAll());
-        logger.info("/main/tables/purchase/add");
         return "actions/addPurchase";
     }
 
     @RequestMapping(value = "/main/tables/purchase/addPurchase",method = RequestMethod.POST)
     public String addPurchase(@Valid Purchase purchase, @RequestParam("selected") int id){
-        logger.info("/main/tables/purchase/addPurchase");
         purchase.setPrimaryCreditCard(creditCardService.findCreditCardById(id));
-        logger.info(purchase);
         purchaseService.addPurchase(purchase);
         return "redirect:/main/tables/purchase";
     }
 
     @RequestMapping(value = "/main/tables/purchase/add/cancel")
     public String cancelAddForm(){
-
         return "redirect:/main/tables/purchase";
     }
     @RequestMapping(value = "/main/tables/purchase/delete")

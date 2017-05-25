@@ -32,8 +32,6 @@ public class BankController {
 
     @RequestMapping( value = "/main/tables/bank" )
     public String showBanks(Model model){
-        logger.info("/main/tables/bank");
-        logger.info(bankService.findAll());
         model.addAttribute("banks",bankService.findAll());
         return "tables/bank";
     }
@@ -64,8 +62,6 @@ public class BankController {
 
     @RequestMapping(value = "/main/tables/bank/delete", method = RequestMethod.POST)
     public String deleteBank(@RequestParam("getIdBank") int id){
-        logger.info("/main/tables/bank/delete");
-        logger.info(id);
         bankService.deleteBank(id);
         return "redirect:/main/tables/bank";
     }
@@ -80,10 +76,6 @@ public class BankController {
 
     @RequestMapping(value = "/main/tables/bank/updateBank", method = RequestMethod.POST)
     public String updateData(@ModelAttribute("updateBank") Bank bank){
-        logger.info("/main/tables/updateBank");
-        logger.info(bank.getId());
-        logger.info(bank.getTerm_of_issue_of_bank_cards());
-        logger.info(bank);
         bankService.addBank(bank);
         return "redirect:/main/tables/bank";
     }

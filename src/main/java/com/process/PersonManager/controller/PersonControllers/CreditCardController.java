@@ -88,10 +88,6 @@ public class CreditCardController {
 
     @RequestMapping(value = "/main/tables/creditCard/editData",method = RequestMethod.POST)
     public String updateData(@ModelAttribute("editCreditCard") CreditCard creditCard,@RequestParam("getIdPerson") int idPerson,@RequestParam("getIdBank") int idBank){
-        logger.info("/main/tables/creditCard/editData");
-        logger.info(creditCard);
-        logger.info(personService.getPersonById(idPerson));
-        logger.info(bankService.getBankById(idBank));
         creditCard.setPrimaryPerson(personService.getPersonById(idPerson));
         creditCard.setPrimaryBank(bankService.getBankById(idBank));
         creditCardService.addCreditCard(creditCard);
